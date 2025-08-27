@@ -1,6 +1,21 @@
 <?php
 
 include './template/header.php';
+
+
+
+$scrtiptConsulta = "SELECT 
+                        trs.id, ts.identificacao as 'nome_sala',
+                        td.nome as 'nome_docente',
+                        tt.sigla as 'sigla_turma'
+                        FROM tb_reserva_sala trs
+                        INNER JOIN tb_sala ts ON trs.sala_id = ts.id
+                        INNER JOIN tb_turma tt ON trs.turma_id = tt.id
+                        INNER JOIN tb_docente td ON trs.docente_id = td.id";
+
+$resultados= $conn->query($scrtiptConsulta)->fetchAll();
+
+var_dump($resultados);
 ?>
 
 <section class="container vh-100">
@@ -16,44 +31,25 @@ include './template/header.php';
             </tr>
         </thead>
         <tbody>
+            <?php foreach ($resultados as $linha) {?>
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <th scope="row"><?= $linha['id']?></th>
+                <td><?= $linha['nome_sala']?></td>
+                <td><?= $linha['sigla_turma']?></td>
+                <td><?= $linha['nome_descente']?></td>
                 <td>
                     <a href="#" class="btn btn-danger">
                         <i class="bi bi-trash3-fill"></i>
                     </a>
                 </td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>
-                    <a href="#" class="btn btn-danger">
-                        <i class="bi bi-trash3-fill"></i>
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>John</td>
-                <td>Doe</td>
-                <td>@social</td>
-                <td>
-                    <a href="#" class="btn btn-danger">
-                        <i class="bi bi-trash3-fill"></i>
-                    </a>
-                </td>
-            </tr>
+
+            <?php } ?>
+            
         </tbody>
     </table>
 </section>
 
 
 </body>
-
 </html>

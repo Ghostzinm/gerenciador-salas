@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `tb_docente` (
 CREATE TABLE IF NOT EXISTS `tb_turma` (
 	`id` int AUTO_INCREMENT NOT NULL UNIQUE,
 	`nome` varchar(100) NOT NULL,
-	`sigle` varchar(8) NOT NULL,
+	`sigla` varchar(8) NOT NULL,
 	`periodo` varchar(20) NOT NULL,
 	`quant_alunos` int DEFAULT '0',
 	PRIMARY KEY (`id`)
