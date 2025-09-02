@@ -32,10 +32,14 @@ CREATE TABLE IF NOT EXISTS `tb_turma` (
 	PRIMARY KEY (`id`)
 );
 
-ALTER TABLE `tb_reserva_sala` ADD CONSTRAINT `tb_reserva_sala_fk1` FOREIGN KEY (`sala_id`) REFERENCES `tb_sala`(`id`);
+ALTER TABLE `tb_reserva_sala` 
+ADD CONSTRAINT `tb_reserva_sala_fk1` FOREIGN KEY (`sala_id`) REFERENCES `tb_sala`(`id`);
 
-ALTER TABLE `tb_reserva_sala` ADD CONSTRAINT `tb_reserva_sala_fk2` FOREIGN KEY (`turma_id`) REFERENCES `tb_turma`(`id`);
+ALTER TABLE `tb_reserva_sala` 
+ADD CONSTRAINT `tb_reserva_sala_fk2` FOREIGN KEY (`turma_id`) REFERENCES `tb_turma`(`id`);
 
-ALTER TABLE `tb_reserva_sala` ADD CONSTRAINT `tb_reserva_sala_fk3` FOREIGN KEY (`docente_id`) REFERENCES `tb_docente`(`id`);
+ALTER TABLE `tb_reserva_sala` 
+ADD CONSTRAINT `tb_reserva_sala_fk3` FOREIGN KEY (`docente_id`) REFERENCES `tb_docente`(`id`);
 
-
+ALTER TABLE `tb_reserva_sala` 
+ADD COLUMN `deletado` BOOLEAN NOT NULL COMMENT '0 não, 1 sim' DEFAULT '0'

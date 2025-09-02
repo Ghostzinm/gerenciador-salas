@@ -1,4 +1,4 @@
-INSERT INTO tb_sala (identificacao, quant_suporte_aluno, tipo_sala, status) VALUES
+INSERT INTO tb_sala (identificacao, quant_suporte_alunos, tipo_sala, status) VALUES
 ('SALA 01', 30, 'Convencional', 1),
 ('SALA 02', 25, 'Convencional', 1),
 ('SALA 03', 35, 'Convencional', 1),
@@ -38,4 +38,3 @@ INSERT INTO tb_reserva_sala (sala_id, turma_id, docente_id) VALUES
 (6, 3, 3),  -- Hardware para Informática
 (2, 2, 2),  -- Sala Convencional para Biologia
 (10, 5, 5); -- Laboratório para Física
- 

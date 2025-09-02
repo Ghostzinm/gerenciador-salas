@@ -2,20 +2,19 @@
 
 include './template/header.php';
 
+$scriptConsulta = "SELECT 
+                    trs.id, ts.identificacao as 'nome_sala', 
+                    td.nome as 'nome_docente', 
+                    tt.sigla as 'sigla_turma'
+                   FROM tb_reserva_sala trs
+                    INNER JOIN tb_sala ts ON trs.sala_id = ts.id
+                    INNER JOIN tb_turma tt ON trs.turma_id = tt.id
+                    INNER JOIN tb_docente td ON trs.docente_id = td.id
+                    WHERE trs.deletado != 1";
 
+$resultados = $conn->query($scriptConsulta)->fetchAll();
 
-$scrtiptConsulta = "SELECT 
-                        trs.id, ts.identificacao as 'nome_sala',
-                        td.nome as 'nome_docente',
-                        tt.sigla as 'sigla_turma'
-                        FROM tb_reserva_sala trs
-                        INNER JOIN tb_sala ts ON trs.sala_id = ts.id
-                        INNER JOIN tb_turma tt ON trs.turma_id = tt.id
-                        INNER JOIN tb_docente td ON trs.docente_id = td.id";
-
-$resultados= $conn->query($scrtiptConsulta)->fetchAll();
-
-var_dump($resultados);
+// var_dump($resultados);
 ?>
 
 <section class="container vh-100">
@@ -31,25 +30,26 @@ var_dump($resultados);
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($resultados as $linha) {?>
-            <tr>
-                <th scope="row"><?= $linha['id']?></th>
-                <td><?= $linha['nome_sala']?></td>
-                <td><?= $linha['sigla_turma']?></td>
-                <td><?= $linha['nome_descente']?></td>
-                <td>
-                    <a href="#" class="btn btn-danger">
-                        <i class="bi bi-trash3-fill"></i>
-                    </a>
-                </td>
-            </tr>
+            <?php foreach ($resultados as $linha) { ?>
+
+                <tr>
+                    <th scope="row"><?= $linha['id'] ?></th>
+                    <td><?= $linha['nome_sala'] ?></td>
+                    <td><?= $linha['sigla_turma'] ?></td>
+                    <td><?= $linha['nome_docente'] ?></td>
+                    <td>
+                        <a href="./reserva-delete.php?id_deletar=<?= $linha['id'] ?>" class="btn btn-danger">
+                            <i class="bi bi-trash3-fill"></i>
+                        </a>
+                    </td>
+                </tr>
 
             <?php } ?>
-            
         </tbody>
     </table>
 </section>
 
 
 </body>
+
 </html>
