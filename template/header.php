@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<?php 
-require_once './conifg.php'
-?>
+<?php require_once './config.php'?>
 
 <head>
     <meta charset="UTF-8">
@@ -13,26 +10,25 @@ require_once './conifg.php'
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg bg-light rounded mb-4">
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg bg-white rounded mb-4">
         <div class="container">
             <div class="navbar-collapse d-lg-flex">
-                <a class="navbar-brand col-lg-3 me-0" href="#">Sisteminha Top</a>
-                <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+                <a class="navbar-brand col-lg-3 me-0" href="./index.php">Sisteminha Top</a>
+                <ul class="navbar-nav col-lg-6 justify-content-lg-center gap-3">
                     <li class="nav-item">
                         <a class="nav-link active" href="./">Reservas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Cadastrar Sala</a>
+                        <a class="nav-link active" href="./cad-sala.php">Cadastrar Sala</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Cadastrar Docente</a>
+                        <a class="nav-link active" href="./cad-docente.php">Cadastrar Docente</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Cadastrar Turma</a>
+                        <a class="nav-link active" href="./cad-turma.php">Cadastrar Turma</a>
                     </li>
                 </ul>
                 <div class="d-lg-flex col-lg-3 justify-content-lg-end">

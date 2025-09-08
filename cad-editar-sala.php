@@ -1,7 +1,6 @@
 <?php
 include './template/header.php';
-include './template/modal-cadastro-sala.php';
-require './config.php';
+include './template/modal-editar-sala.php';
 
 $scriptListar = "SELECT * FROM tb_sala WHERE desativado = 0";
 
@@ -46,17 +45,11 @@ $resultadoLista = $conn->query($scriptListar)->fetchAll();
     </table>
 </section>
 
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-
 <script>
-    function solicitar() {
 
-        $.ajax({
-            url: "cad-editar-2.php",
-            success: function(result) {
-                console.log(result);
-            },
-            
-        })
-    }
+    //Carregar o modal automaticamente
+  document.addEventListener("DOMContentLoaded", function () {
+    var modalEditar = new bootstrap.Modal(document.getElementById('modalEditar'));
+        modalEditar.show();
+  });
 </script>

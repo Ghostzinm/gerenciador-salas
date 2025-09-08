@@ -1,19 +1,22 @@
-<?php 
+<?php
 
-require './conifg.php';
+require './config.php';
 
-const RESERVA_ATIVADO = 0;
-const RESERVA_DESATIVADO = 1;
+//Criar duas contantes para termor controle e sem magic numbers
+const RESERVA_DESATIVADA = 1;
+const RESERVA_ATIVADA = 0;
 
-$id = $_GET["id_deletar"];
+$id = $_GET['id_deletar'];
 
-var_dump($id);
+//comando para atualizar a coluna delete para 1 (verdadeiro)
+$script = "UPDATE tb_reserva_sala SET deletado = :deletado WHERE id = :id;";
 
-$script = 'UPDATE tb_reserva_sala SET deletado = :deletado WHERE id = :id';
-
-$resudado = $conn->prepare($script)->execute([
-    ':deletado' => RESERVA_DESATIVADO,
-    ':id'=> $id
+//executar o comando delete
+$resultado = $conn->prepare($script)->execute([
+    'deletado' => RESERVA_DESATIVADA,
+    ':id' => $id 
 ]);
 
-header('Location: ./index.php');
+
+//retornando para o index.php
+header('location:index.php');

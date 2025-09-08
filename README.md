@@ -43,18 +43,9 @@
             - identificação da turma
             - horario da turma
 
-
-
---git
+```git
 
 git add .
 git commit -m"comentario"
-.gitignore 
-    -ignora todos os arquivos que voce digitar dentro dele
-.env
-    -criar variaves globais para usar no seu projeto, deixando mais seguros, como para guarda senha 
-.env-exemplo
-    -uma copiar apenas dos nomes das variasves
 
---
-
+```
